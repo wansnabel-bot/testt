@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المهندس ونس نبيل - الموقع الشخصي</title>
+    <!-- استدعاء خط عربي أنيق من جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- استدعاء أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        :root {
+            --primary-color: #002ffe;
+            --secondary-color: #4facfe;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* شريط التنقل */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* القسم الرئيسي (Hero) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1e293b 0%, var(--dark-bg) 70%);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--dark-bg);
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+        }
+
+        /* الأقسام العامة */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 800;
+            color: var(--text-color);
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        /* قسم من أنا */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .skill-card h4 {
+            font-size: 1.1rem;
+        }
+
+        /* التذييل (Footer) */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #090d16;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            nav ul {
+                display: none; /* يمكن تطوير قائمة منسدلة للهواتف لاحقاً */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <header>
+        <a href="#" class="logo">م. ونس نبيل</a>
+        <nav>
+            <ul>
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#about">عن المهندس</a></li>
+                <li><a href="#contact">تواصل معي</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- الواجهة الرئيسية -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>مرحباً، أنا المهندس ونس نبيل</h1>
+            <p>شغوف بالهندسة، التكنولوجيا، والابتكار الرقمي</p>
+            <a href="#about" class="btn">استكشف الموقع</a>
+        </div>
+    </section>
+
+    <!-- قسم من أنا -->
+    <section id="about">
+        <h2 class="section-title">نبذة <span>عني</span></h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>مهندس طموح ومطور</h3>
+                <p>أهلاً بك في موقعي الشخصي. أسعى دائماً لتطوير مهاراتي التقنية والهندسية، ودمج الأنظمة الذكية والحلول البرمجية لحل المشكلات المعقدة وصناعة أثر حقيقي.</p>
+                <p>أؤمن بأن التعلم المستمر والشغف بالتفاصيل هما أساس التميز في عالم الهندسة والتكنولوجيا الحديثة.</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>الهندسة والدوائر</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h4>البرمجة والتطوير</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>الأمن السيبراني</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>حل المشكلات التقنية</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section id="contact" style="text-align: center;">
+        <h2 class="section-title">تواصل <span>معي</span></h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.2rem;">يسعدني التواصل معك أو الإجابة على أي استفسار.</p>
+        <a href="mailto:example@email.com" class="btn"><i class="fas fa-envelope" style="margin-left: 8px;"></i> راسلني عبر البريد</a>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 | المهندس ونس نبيل</p>
+    </footer>
+
+</body>
+</html>
